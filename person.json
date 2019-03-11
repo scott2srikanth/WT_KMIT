@@ -1,0 +1,19 @@
+[
+	{
+    "firstName": "Bob",
+    "lastName": "Bismark",
+    "age": 12,
+    "marks": {
+      "english": 66,
+      "math": 78
+    },
+    "gps_location": [{
+        "lat": 17.45,
+        "lon": 7.14
+      },
+      {
+        "address": "Hyderabad"
+      }
+    ]
+  }
+]
