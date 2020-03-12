@@ -6,14 +6,11 @@ public class DBConnection {
 	
 	
 	
-	public static String myConnection(String username, String password) {
+	public static String myLogin(String dbdriver, String dburl, String dbuser,String dbpass,String username, String password,User u) {
 		Connection con=null;
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/wt2020", 
-					"root", 
-					"17121981");
-			
+			Class.forName(dbdriver);
+			con=DriverManager.getConnection(dburl,dbuser, dbpass);
 			
 			Statement st=con.createStatement();
 			String sql="Select * from users where username='"+username+"' and password='"+password+"'";
@@ -21,7 +18,7 @@ public class DBConnection {
 			ResultSet rs=st.executeQuery(sql);
 			if(rs!=null) {
 				if(rs.next()) {
-				  System.out.println(rs.getString("email"));
+				  u.setEmail(rs.getString("email"));
 				  return "Login Successful"; 
 				}else
 					return "Login failed"; 
